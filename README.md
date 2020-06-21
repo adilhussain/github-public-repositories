@@ -4,6 +4,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+First of all generate a personal access token for accessing graphql api (https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
+
+Once you have the token, update the file `src/app.module.ts` and paste it in Authrization header.
+
+After that, you can either have node on your local system and run `npm install && ng serve` OR  
+you can run `docker-compose up` to spin up a container if you don't have node installed in your system.
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
