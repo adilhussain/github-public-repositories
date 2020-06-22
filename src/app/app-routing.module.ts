@@ -7,7 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   { path: 'list', component: GithubListComponent },
-  { path: 'list/:repo/:owner', component: DetailViewComponent },
+  { path: 'list/:owner/:repo', component: DetailViewComponent },
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

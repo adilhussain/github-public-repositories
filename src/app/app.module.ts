@@ -17,7 +17,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const auth = setContext((operation, context) => ({
   headers: {
     Authorization: `Bearer <token>`, // add your github token here
-    'Access-Control-Allow-Origin': '*',
     Accept: 'charset=utf-8',
   },
 }));
@@ -43,7 +42,7 @@ const auth = setContext((operation, context) => ({
       return {
         cache: new InMemoryCache(),
         link: ApolloLink.from([auth, httpLink.create({ uri: "https://api.github.com/graphql"})])
-      }
+      };
     },
     deps: [HttpLink]
   }],

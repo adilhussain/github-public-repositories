@@ -24,13 +24,11 @@ export class DetailViewComponent implements OnInit {
     });
     let contributorArr = [];
     const h = new HttpHeaders();
-    console.log(this.owner, this.repo);
     h.append('Accept', 'text/plain');
     h.append('content-type', 'text/plain');
     this.http.get(`https://github.com/${this.owner}/${this.repo}/issues/show_menu_content?partial=issues%2Ffilters%2Fauthors_content&q=is%3Aissue+is%3Aopen`,
         {responseType: 'text'})
         .subscribe(response => {
-          // console.log(response);
           $('<div></div>').html(response).find('a').each(function(l) {
             const accName = decodeURIComponent($(this).attr('href').split('%3A')[3]);
             const profileImage = $(this).find('img').attr('src');

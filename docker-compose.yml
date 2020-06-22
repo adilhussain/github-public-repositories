@@ -6,6 +6,6 @@ services:
     volumes:
     - ${PWD}:/app
     working_dir: /app
-    command: ["npm", "start"]
+    command: bash -c "npm install && npm start"
     ports:
     - "4200:4200"

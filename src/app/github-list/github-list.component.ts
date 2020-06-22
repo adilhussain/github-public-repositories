@@ -22,16 +22,15 @@ export class GithubListComponent implements OnInit {
   constructor(
     private apollo: Apollo, 
     private route: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.feedQuery = this.apollo
       .watchQuery<any>({
       query: githubPublicListQuery,
-      variables: {
-        "queryString": "is:public"
-      },
-      fetchPolicy: 'network-only',
+        variables: {
+          "queryString": "is:public"
+        }
       });
       this.feed = this.feedQuery
       .valueChanges.subscribe(result => {
@@ -66,7 +65,6 @@ export class GithubListComponent implements OnInit {
         this.edges = [...this.edges, ...newEdges];
 
         this.loading = false;
-        document.documentElement.scrollTop = 0;
         return {
           rateLimit: previousEntry.rateLimit,
           search: previousEntry.search,
@@ -77,7 +75,7 @@ export class GithubListComponent implements OnInit {
   }
 
   gotoDetailView(repoName, owner) {
-    this.route.navigate(['/list', repoName, owner])
+    this.route.navigate(['/list', owner, repoName]);
   }
 
   linkClick() {
